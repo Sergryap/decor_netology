@@ -6,6 +6,12 @@ import os
 
 
 def log_file_path(path, file_name, a=None):
+    """
+    :param path: Папка для лог файла
+    :param file_name: Имя лог файла
+    :param a: Если True то аргументы записываются иначе "Null"
+    """
+
     def log_func(old_func):
         nonlocal a
 
@@ -50,6 +56,7 @@ def log_to_csv(file_csv: str, log: dict):
 @log_file_path("log", "log_file.csv", a=True)
 def test_func(x, y, z=5):
     return x ** 2 + y ** 2 + z
+
 
 @log_file_path("log", "log_file.csv", a=True)
 def test_func1(x, y, f, z=5):
